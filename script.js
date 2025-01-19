@@ -6,7 +6,10 @@ function draw(){
   const r = generateRandomRGBValue();
   const g = generateRandomRGBValue();
   const b = generateRandomRGBValue();
-  this.style.backgroundColor = `rgba(${r}, ${g}, ${b})`;
+  this.style.backgroundColor = `rgba(${r}, ${g}, ${b}`;
+  if(this.dataset.opacity < 100)
+    this.dataset.opacity = parseInt(this.dataset.opacity) + 10;
+  this.style.opacity = `${this.dataset.opacity}%`;
 }
 
 function activateDraw(){
@@ -34,6 +37,7 @@ function createGrid(size){
     for(let j = 0; j < size; j++){
         const square = document.createElement("div");
         square.classList.add("square");
+        square.dataset.opacity = 0;
         row.appendChild(square);
     }
     container.appendChild(row);
