@@ -1,22 +1,44 @@
-const container = document.querySelector(".container");
+function changeColor(){
+    this.classList.toggle("change-color");
+}
 
-// create 16x16 grid of square divs
-for(let i = 0; i < 16; i++){
+function createGrid(size){
+  const container = document.querySelector(".container");
+
+  for(let i = 0; i < size; i++){
     const row = document.createElement("div");
     row.classList.add("row");
-    for(let j = 0; j < 16; j++){
+    for(let j = 0; j < size; j++){
         const square = document.createElement("div");
         square.classList.add("square");
         row.appendChild(square);
     }
     container.appendChild(row);
+  }
+
+  document.querySelectorAll(".square").forEach(function(square) {
+      square.addEventListener("mouseover", changeColor);
+      square.addEventListener("mouseout", changeColor);
+  });
 }
 
-function changeColor(){
-    this.classList.toggle("change-color");
+function createNewGrid(){
+    document.querySelectorAll(".row").forEach((row)=>{
+        row.remove();
+    });
+
+    let size;
+    while(true){
+        size = parseInt(prompt("Enter size: "));
+
+        if(size > 0 && size === Math.floor(size)) break;
+        else alert("Invalid size.");
+    }
+
+    createGrid(size);
 }
 
-document.querySelectorAll(".square").forEach(function(square) {
-    square.addEventListener("mouseover", changeColor);
-    square.addEventListener("mouseout", changeColor);
-});
+const changeSize = document.querySelector("#change-size");
+changeSize.addEventListener("click", createNewGrid);
+
+createGrid(16);
