@@ -26,9 +26,8 @@ function deactivateDraw(){
 
 function clearGrid(){
   document.querySelectorAll(".square").forEach((square) => {
-    square.style.backgroundColor = "white";
+    square.style = `background-color: "white"; opacity: 0%;`;
     square.opacity = "0%";
-    square.dataset.opacity = 0;
   })
 }
 

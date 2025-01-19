@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
     <link href="./style.css" rel="stylesheet">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <button id="change-size">Change Size</button>
-    <button id="clear">Clear</button>
-    <div class="container"></div>
+    <h1>Etch-a-Sketch</h1>
+    <div id="button-container">
+        <button id="change-size">Change Size</button>
+        <button id="clear">Clear</button>
+    </div>
+    <div class="bevel">
+        <div class="container"></div>
+        <div class="knobs-container">
+            <div class="knob"></div>
+            <div class="knob"></div>
+        </div>
+    </div>
+    <footer>&copy; 2025 Johann Erazo</footer>
 </body>
 </html>
