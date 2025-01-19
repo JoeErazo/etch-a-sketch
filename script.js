@@ -2,6 +2,18 @@ function draw(){
   this.classList.add("change-color");
 }
 
+function activateDraw(){
+  document.querySelectorAll(".square").forEach(function(square) {
+    square.addEventListener("mouseover", draw);
+  });
+}
+
+function deactivateDraw(){
+  document.querySelectorAll(".square").forEach(function(square) {
+    square.removeEventListener("mouseover", draw);
+  });
+}
+
 function clearGrid(){
   document.querySelectorAll(".square").forEach((square) => {
     square.classList.remove("change-color");
@@ -9,8 +21,6 @@ function clearGrid(){
 }
 
 function createGrid(size){
-  const container = document.querySelector(".container");
-
   for(let i = 0; i < size; i++){
     const row = document.createElement("div");
     row.classList.add("row");
@@ -21,10 +31,6 @@ function createGrid(size){
     }
     container.appendChild(row);
   }
-
-  document.querySelectorAll(".square").forEach(function(square) {
-      square.addEventListener("mouseover", draw);
-  });
 }
 
 function createNewGrid(){
@@ -47,5 +53,8 @@ const changeSize = document.querySelector("#change-size");
 changeSize.addEventListener("click", createNewGrid);
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", clearGrid);
+const container = document.querySelector(".container");
+container.addEventListener("mousedown", activateDraw);
+container.addEventListener("mouseup", deactivateDraw);
 
 createGrid(16);
