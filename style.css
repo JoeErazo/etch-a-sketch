@@ -5,17 +5,18 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 960px;
+    height: 960px;
 }
 
 .row {
     display: flex;
-    gap: 10px;
+    width: 960px;
+    flex-grow: 1;
 }
 
 .square {
-    height: 50px;
-    width: 50px;
+    flex-grow: 1;
 }
 
 .change-color {
