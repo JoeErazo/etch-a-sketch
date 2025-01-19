@@ -12,3 +12,11 @@ for(let i = 0; i < 16; i++){
     container.appendChild(row);
 }
 
+function changeColor(){
+    this.classList.toggle("change-color");
+}
+
+document.querySelectorAll(".square").forEach(function(square) {
+    square.addEventListener("mouseover", changeColor);
+    square.addEventListener("mouseout", changeColor);
+});
