@@ -1,5 +1,12 @@
+function generateRandomRGBValue(){
+  return Math.floor(Math.random() * 255);
+}
+
 function draw(){
-  this.classList.add("change-color");
+  const r = generateRandomRGBValue();
+  const g = generateRandomRGBValue();
+  const b = generateRandomRGBValue();
+  this.style.backgroundColor = `rgba(${r}, ${g}, ${b})`;
 }
 
 function activateDraw(){
@@ -16,7 +23,7 @@ function deactivateDraw(){
 
 function clearGrid(){
   document.querySelectorAll(".square").forEach((square) => {
-    square.classList.remove("change-color");
+    square.style.backgroundColor = "white";
   })
 }
 
