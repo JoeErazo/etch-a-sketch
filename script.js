@@ -28,13 +28,13 @@ function createNewGrid(){
     });
 
     let size;
+    // input validation
     while(true){
         size = parseInt(prompt("Enter size: "));
 
-        if(size > 0 && size === Math.floor(size)) break;
+        if(size > 0 && size === Math.floor(size) && size <= 100) break;
         else alert("Invalid size.");
     }
-
     createGrid(size);
 }
 
