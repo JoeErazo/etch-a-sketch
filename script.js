@@ -1,5 +1,11 @@
-function changeColor(){
-    this.classList.toggle("change-color");
+function draw(){
+  this.classList.add("change-color");
+}
+
+function clearGrid(){
+  document.querySelectorAll(".square").forEach((square) => {
+    square.classList.remove("change-color");
+  })
 }
 
 function createGrid(size){
@@ -17,8 +23,7 @@ function createGrid(size){
   }
 
   document.querySelectorAll(".square").forEach(function(square) {
-      square.addEventListener("mouseover", changeColor);
-      square.addEventListener("mouseout", changeColor);
+      square.addEventListener("mouseover", draw);
   });
 }
 
@@ -40,5 +45,7 @@ function createNewGrid(){
 
 const changeSize = document.querySelector("#change-size");
 changeSize.addEventListener("click", createNewGrid);
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", clearGrid);
 
 createGrid(16);
