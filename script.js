@@ -63,5 +63,6 @@ clear.addEventListener("click", clearGrid);
 const container = document.querySelector(".container");
 container.addEventListener("mousedown", activateDraw);
 container.addEventListener("mouseup", deactivateDraw);
+container.addEventListener("mouseleave", deactivateDraw);
 
 createGrid(16);
